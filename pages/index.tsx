@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import useSWR from "swr";
-import { who } from "./types";
+import { who } from "../types";
 
 const Home: NextPage = ({ ip }: any) => {
   const fetcher = (...args: [string]) =>

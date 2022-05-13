@@ -33,7 +33,7 @@ const Home: NextPage = () => {
       <p>Hola! Tu ip es: {ip}</p>
       <p>
         Tu proveedor es:{" "}
-        {ipData.entities[0].vcardArray.map((item) => (
+        {ipData.entities[0].vcardArray.map((item: any) => (
           <span key={item[1][1]}>{item[1][3]}</span>
         ))}{" "}
         <span key={ipData.entities[0].handle}>

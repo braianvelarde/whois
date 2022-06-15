@@ -3,7 +3,11 @@ import Data from "../components/data";
 import requestIp from "request-ip";
 import { GetServerSidePropsContext } from "next";
 
-const Home: NextPage = () => {
+interface Props {
+  detectedIp: string;
+}
+
+const Home = ({ detectedIp }: Props) => {
   return (
     <>
       <header>
@@ -17,7 +21,7 @@ const Home: NextPage = () => {
           See your ip address and its ISP data
         </p>
         <article className="mt-8">
-          <Data detectedIp={""} />
+          <Data detectedIp={detectedIp} />
         </article>
       </section>
     </>

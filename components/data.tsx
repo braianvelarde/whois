@@ -1,8 +1,4 @@
-import axios from "axios";
-import { GetServerSidePropsContext } from "next";
 import { useQuery } from "react-query";
-
-import requestIp from "request-ip";
 
 interface Props {
   detectedIp: string;
@@ -40,13 +36,4 @@ export default function Data({ detectedIp }: Props) {
       </p>
     </article>
   );
-}
-
-export async function getServerSideProps(ctx: GetServerSidePropsContext) {
-  const detectedIp = requestIp.getClientIp(ctx.req);
-  return {
-    props: {
-      detectedIp,
-    },
-  };
 }

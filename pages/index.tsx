@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Data from "../components/data";
-import { DataMock } from "../components/dataMock";
+import requestIp from "request-ip";
+import { GetServerSidePropsContext } from "next";
 
 const Home: NextPage = () => {
   return (
@@ -16,11 +17,20 @@ const Home: NextPage = () => {
           See your ip address and its ISP data
         </p>
         <article className="mt-8">
-          <DataMock />
+          <Data detectedIp={""} />
         </article>
       </section>
     </>
   );
 };
+
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+  const detectedIp = requestIp.getClientIp(ctx.req);
+  return {
+    props: {
+      detectedIp,
+    },
+  };
+}
 
 export default Home;

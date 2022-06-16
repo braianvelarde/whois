@@ -15,6 +15,14 @@ export default function Data({ detectedIp }: Props) {
     )
   );
 
+  if (isLoading) {
+    return <p>Loading data...</p>;
+  }
+
+  if (error) {
+    return <p>An error has been ocurred</p>;
+  }
+
   return (
     <article className="p-8 rounded-md hover:shadow-md transition-all duration-150">
       <h2>Tu ip es: {detectedIp}</h2>

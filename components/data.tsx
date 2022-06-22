@@ -5,13 +5,12 @@ interface Props {
 }
 
 export default function Data({ detectedIp }: Props) {
-  const ipPrueba = "190.107.245.13";
   const {
     isLoading,
     error,
     data: ipData,
   } = useQuery("repoData", () =>
-    fetch(`https://rdap.lacnic.net/rdap/ip/${ipPrueba}`).then((res) =>
+    fetch(`https://rdap.lacnic.net/rdap/ip/${detectedIp}`).then((res) =>
       res.json()
     )
   );
@@ -28,7 +27,7 @@ export default function Data({ detectedIp }: Props) {
     <article className="p-8 flex flex-col md:grid md:grid-cols-3 gap-6">
       <div className="rounded-md bg-gray-800 px-8 py-10 border-t-8 border-orange-500 flex flex-col">
         <h2 className="text-sm">Your IP</h2>
-        <p className="text-xl font-semibold tracking-wide">{ipPrueba}</p>
+        <p className="text-xl font-semibold tracking-wide">{detectedIp}</p>
       </div>
       <div className="rounded-md bg-gray-800 px-8 py-10 border-t-8 border-emerald-500 col-span-2 flex flex-col gap-3">
         <p className="text-sm">

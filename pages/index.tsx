@@ -7,7 +7,7 @@ interface Props {
   detectedIp: string;
 }
 
-const Home = ({ detectedIp }: Props) => {
+const Home: NextPage<Props> = ({ detectedIp }: Props) => {
   return (
     <>
       <header>
